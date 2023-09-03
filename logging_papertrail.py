@@ -1,9 +1,12 @@
 import logging
+import os
+from dotenv import load_dotenv 
 from logging.handlers import SysLogHandler
 
 # URL: https://my.papertrailapp.com/events
-PAPERTRAIL_HOST = "logs5.papertrailapp.com"
-PAPERTRAIL_PORT = 53361
+load_dotenv()
+PAPERTRAIL_HOST = os.getenv("PAPERTRAIL_HOST") or ""
+PAPERTRAIL_PORT = os.getenv("PAPERTRAIL_PORT") or ""
 
 
 def main() -> None:
